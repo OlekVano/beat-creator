@@ -1,0 +1,40 @@
+body,
+html,
+.main {
+  min-height: 100vh;
+  margin: 0;
+}
+
+.main {
+  transition: background-color 200ms;
+}
+
+.main.dark {
+  background-color: rgb(40, 40, 102);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 15px;
+}
+
+.theme-toggle {
+  height: 50px;
+  width: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.theme-toggle > img {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.theme-toggle.dark > img {
+  filter: brightness(1) invert(1);
+  height: 90%;
+}
