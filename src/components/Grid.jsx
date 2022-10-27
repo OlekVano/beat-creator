@@ -1,7 +1,29 @@
-import Square from "./Square"
-import SquareRow from "./SquareRow"
+import { useEffect } from 'react'
+import Square from './Square'
+import SquareRow from './SquareRow'
 
 const Grid = ({ theme, squares, setSquares }) => {
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  useEffect(() => {
+    (async () => {
+      var col = 0
+      while (true) {
+        console.log('hello')
+        for (var row = 0; row < squares.length; row++) {
+          if (squares[row][col] === 1) {
+            playSound(row)
+          }
+        }
+        col++
+        if (col >= squares[0].length) {
+          col = 0
+        }
+        await sleep(500)
+      }
+    })()
+  }, [])
+
   const toggleSquare = (row, col) => {
     var newSquares = [...squares]
 
@@ -17,7 +39,7 @@ const Grid = ({ theme, squares, setSquares }) => {
     const sounds = [
       'snare.wav',
       'clap.wav',
-      'snare2.wav',
+      'snare.wav',
       'sound.wav',
       'kick.wav'
     ]
@@ -29,11 +51,11 @@ const Grid = ({ theme, squares, setSquares }) => {
   return (
     <div className={`grid ${theme}`}>
       <div className={`sound-types ${theme}`}>
-        <img src='drum.png' />
-        <img src='clapping.png' />
-        <img src='snare-drum.png' />
-        <img src='wave-sound.png' />
-        <img src='taekwondo-kick.png' />
+        <img src='drum.png' onClick={() => playSound(0)} draggable='false'/>
+        <img src='clapping.png' onClick={() => playSound(1)} draggable='false'/>
+        <img src='snare-drum.png' onClick={() => playSound(2)} draggable='false'/>
+        <img src='wave-sound.png' onClick={() => playSound(3)} draggable='false'/>
+        <img src='taekwondo-kick.png' onClick={() => playSound(4)} draggable='false'/>
       </div>
       <div className={`squares ${theme}`}>
         {

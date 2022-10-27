@@ -1,6 +1,6 @@
-const Square = ({ square, toggleSquare}) => {
+const Square = ({ square, toggleSquare }) => {
   return (
-    <div className={`square ${square === 1 ? 'active' : 'inactive'}`} onClick={toggleSquare} ></div>
+    <div className={`square ${square === 1 ? 'active' : square === 2 ? 'inactive selected' : square === 3 ? 'active selected' : 'inactive'}`} onClick={toggleSquare} ></div>
   )
 }
 
