@@ -5,8 +5,14 @@ html,
   margin: 0;
 }
 
+img {
+  user-select: none;
+}
+
 .main {
   transition: background-color 200ms;
+  display: flex;
+  flex-direction: column;
 }
 
 .main.dark {
@@ -37,4 +43,80 @@ html,
 .theme-toggle.dark > img {
   filter: brightness(1) invert(1);
   height: 90%;
+}
+
+.grid {
+  margin: 50px;
+  display: flex;
+  overflow-y: auto;
+  max-width: calc(100vw - 100px);
+}
+
+.grid.dark {
+  background-color: rgb(61, 61, 141);
+}
+
+.sound-types {
+  display: flex;
+  flex-direction: column;
+}
+
+.sound-types.dark > * {
+  filter: brightness(0) invert(1);
+}
+
+.grid.dark,
+.sound-types.dark,
+.sound-types.dark > img,
+.squares.dark > .square-row > .square {
+  outline: 2px solid white;
+}
+
+.sound-types > * {
+  height: 50px;
+  padding: 15px;
+}
+
+.squares {
+  flex-grow: 1;
+}
+
+.square-row {
+  height: 80px;
+  display: flex;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.square.active {
+  background-color: black;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0px 50px;
+  gap: 25px;
+}
+
+.plus-container,
+.minus-container {
+  padding: 15px;
+  border: 2px solid white;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.plus-container > img,
+.minus-container > img {
+  height: 25px;
+}
+
+.controls.dark > .plus-container > img,
+.controls.dark > .minus-container > img {
+  filter: brightness(1) invert(1);
 }
