@@ -46,7 +46,7 @@ const Controls = ({ theme, squares, setSquares, playSound }) => {
         <img src='minus.png' />
       </div>
       <div>
-        <input type='range' min='30' max='360' defaultValue='60' id='bpmSlider' />
+        <input type='range' step='5' min='30' max='360' defaultValue='60' id='bpmSlider' />
         <div id='bpmText' style={{color: 'white', textAlign: 'center'}}>BPM: {bpm}</div>
       </div>
     </div>
