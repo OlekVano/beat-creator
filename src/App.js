@@ -8,10 +8,10 @@ function App() {
   const [squares, setSquares] = useState([...new Array(5)].map(() => new Array(4).fill(0)))
 
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
+    const newTheme = theme === 'dark' ? 'light' : 'dark'
+    localStorage.setItem('theme', newTheme)
+    setTheme(newTheme)
   }
-
-  //const sleep = ms => new Promise(r => setTimeout(r, ms));
 
   const toggleSquare = (row, col) => {
     var newSquares = [...squares]
