@@ -8,8 +8,6 @@ const PlayPauseBtn = ({ squares, playSound, bpmRef }) => {
       var col = 0
       var time = 0
 
-      const slider = document.getElementById('bpmSlider')
-
       const new_id = window.setInterval(() => {
         time += 0.01
 
