@@ -6,7 +6,7 @@ const PlayPauseBtn = ({ squares, playSound, bpmRef }) => {
   const togglePlaying = () => {
     if (id == null) {
       var col = 0
-      var time = 0
+      var time = bpmRef.current
 
       const new_id = window.setInterval(() => {
         time += 0.01
