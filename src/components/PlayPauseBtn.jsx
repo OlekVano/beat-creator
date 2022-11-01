@@ -35,7 +35,7 @@ const PlayPauseBtn = ({ squares, playSound, bpmRef }) => {
 
   return (
     <div className='play-pause-container' onClick={togglePlaying}>
-      <img src={id != null? 'pause.png' : 'play.png'} />
+      <img alt={id != null ? 'pause' : 'play'} src={id != null ? 'pause.png' : 'play.png'} />
     </div>
   )
 }

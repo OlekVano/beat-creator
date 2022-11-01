@@ -40,10 +40,10 @@ const Controls = ({ theme, squares, setSquares, playSound }) => {
     <div className={`controls ${theme}`}>
       <PlayPauseBtn squares={squares} playSound={playSound} bpmRef={bpmRef}/>
       <div className='plus-container' onClick={addColumn}>
-        <img src='plus.png' />
+        <img src='plus.png' alt='plus' />
       </div>
       <div className='minus-container' onClick={removeColumn}>
-        <img src='minus.png' />
+        <img src='minus.png' alt='minus' />
       </div>
       <div>
         <input type='range' step='5' min='30' max='360' defaultValue='60' id='bpmSlider' />
