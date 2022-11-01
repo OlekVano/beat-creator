@@ -11,7 +11,33 @@ function App() {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
-  useEffect(() => {
+  //const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  const toggleSquare = (row, col) => {
+    var newSquares = [...squares]
+
+    if (newSquares[row][col] === 0) {
+      playSound(row)
+    }
+
+    newSquares[row][col] = newSquares[row][col] === 0 ? 1 : 0
+    setSquares(newSquares)
+  }
+
+  const playSound = (i) => {
+    const sounds = [
+      'snare.wav',
+      'clap.wav',
+      'snare.wav',
+      'sound.wav',
+      'kick.wav'
+    ]
+
+    const audio = new Audio(sounds[i])
+    audio.play()
+  }
+
+  const manageTheme = async () => {
     const localTheme = localStorage.getItem('theme')
     if (['light', 'dark'].includes(localTheme)) {
       setTheme(localTheme)
@@ -24,13 +50,17 @@ function App() {
       localStorage.setItem('theme', 'light')
       setTheme('light')
     }
+  }
+
+  useEffect(() => {
+    manageTheme()
   }, [])
 
   return (
     <div className={`main ${theme}`}>
       <Header theme={theme} setTheme={setTheme} toggleTheme={toggleTheme} />
-      <Controls theme={theme} squares={squares} setSquares={setSquares} />
-      <Grid theme={theme} squares={squares} setSquares={setSquares} />
+      <Controls theme={theme} squares={squares} setSquares={setSquares} playSound={playSound} />
+      <Grid theme={theme} squares={squares} toggleSquare={toggleSquare} playSound={playSound} />
     </div>
   );
 }

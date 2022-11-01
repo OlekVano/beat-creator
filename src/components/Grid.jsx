@@ -1,53 +1,6 @@
-import { useEffect } from 'react'
-import Square from './Square'
 import SquareRow from './SquareRow'
 
-const Grid = ({ theme, squares, setSquares }) => {
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-  useEffect(() => {
-    (async () => {
-      var col = 0
-      while (true) {
-        console.log('hello')
-        for (var row = 0; row < squares.length; row++) {
-          if (squares[row][col] === 1) {
-            playSound(row)
-          }
-        }
-        col++
-        if (col >= squares[0].length) {
-          col = 0
-        }
-        await sleep(500)
-      }
-    })()
-  }, [])
-
-  const toggleSquare = (row, col) => {
-    var newSquares = [...squares]
-
-    if (newSquares[row][col] === 0) {
-      playSound(row)
-    }
-
-    newSquares[row][col] = newSquares[row][col] === 0 ? 1 : 0
-    setSquares(newSquares)
-  }
-
-  const playSound = (i) => {
-    const sounds = [
-      'snare.wav',
-      'clap.wav',
-      'snare.wav',
-      'sound.wav',
-      'kick.wav'
-    ]
-
-    const audio = new Audio(sounds[i])
-    audio.play()
-  }
-
+const Grid = ({ theme, squares, toggleSquare, playSound }) => {
   return (
     <div className={`grid ${theme}`}>
       <div className={`sound-types ${theme}`}>

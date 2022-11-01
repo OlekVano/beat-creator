@@ -109,19 +109,24 @@ img {
 }
 
 .plus-container,
-.minus-container {
+.minus-container,
+.play-pause-container {
   padding: 15px;
   border: 2px solid white;
   border-radius: 100px;
   cursor: pointer;
+  display: grid;
+  place-items: center;
 }
 
 .plus-container > img,
-.minus-container > img {
+.minus-container > img,
+.play-pause-container > img {
   height: 25px;
 }
 
 .controls.dark > .plus-container > img,
-.controls.dark > .minus-container > img {
+.controls.dark > .minus-container > img,
+.controls.dark > .play-pause-container > img {
   filter: brightness(1) invert(1);
 }
