@@ -28,7 +28,7 @@ function App() {
     const sounds = [
       'snare.wav',
       'clap.wav',
-      'snare.wav',
+      'snare2.wav',
       'sound.wav',
       'kick.wav'
     ]
