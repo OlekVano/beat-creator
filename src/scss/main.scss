@@ -23,6 +23,10 @@ img {
   background-color: rgb(40, 40, 102);
 }
 
+.main.light {
+  background-color: burlywood;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -49,6 +53,10 @@ img {
   height: 90%;
 }
 
+.theme-toggle.light > img {
+  filter: brightness(0) invert(1);
+}
+
 .grid {
   margin: 50px;
   display: flex;
@@ -66,14 +74,14 @@ img {
   cursor: pointer;
 }
 
-.sound-types.dark > * {
+.sound-types > * {
   filter: brightness(0) invert(1);
 }
 
-.grid.dark,
-.sound-types.dark,
-.sound-types.dark > img,
-.squares.dark > .square-row > .square {
+.grid,
+.sound-types,
+.sound-types > img,
+.squares > .square-row > .square {
   outline: 2px solid white;
 }
 
@@ -97,8 +105,12 @@ img {
   cursor: pointer;
 }
 
+.squares.light > .square-row > .square.active {
+  background-color: white;
+}
+
 .square.active {
-  background-color: black;
+  background-color: white;
 }
 
 .controls {
@@ -125,8 +137,8 @@ img {
   height: 25px;
 }
 
-.controls.dark > .plus-container > img,
-.controls.dark > .minus-container > img,
-.controls.dark > .play-pause-container > img {
+.controls > .plus-container > img,
+.controls > .minus-container > img,
+.controls > .play-pause-container > img {
   filter: brightness(1) invert(1);
 }
